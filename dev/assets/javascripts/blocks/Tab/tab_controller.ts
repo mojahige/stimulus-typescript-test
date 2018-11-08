@@ -1,61 +1,47 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  currentIndex: number
+  // これまじか
+  listTarget: Element
+  listTargets: Element[]
+  hasListTarget: boolean
+  contentTarget: Element
+  contentTargets: Element[]
+  hasContentTarget: boolean
 
-  initialize() {
-    this.currentIndex = 0
-  }
+  static targets = ['list', 'content']
+  currentIndex: number = 0
 
-  update(newIndex) {
+  // initialize() {
+  // }
+
+  update(newIndex: number) {
     if (this.currentIndex === newIndex) {
       return
     }
 
     this.currentIndex = newIndex
-
-    this.allCloseTabItem()
-    this.openTabItem(newIndex)
   }
 
-  allCloseTabItem() {
-    this.element
-      .querySelectorAll('li')
-      .forEach(element => element.classList.remove('-open'))
-  }
+  onClickListButton(e: Event) {
+    const clickButton = <HTMLButtonElement>e.currentTarget
 
-  closeTabItem(index) {
-    try {
-      this.element.querySelectorAll('li')[index].classList.remove('-open')
-    } catch (error) {
-      console.error(error)
+    if (clickButton) {
+      this.update(
+        this.getNewCurrentIndex(<HTMLLIElement>clickButton.parentElement)
+      )
     }
   }
 
-  openTabItem(index) {
-    try {
-      this.element.querySelectorAll('li')[index].classList.add('-open')
-    } catch (error) {
-      console.error(error)
-    }
+  getList(): Array<Element> {
+    return this.hasListTarget
+      ? Array.from(this.listTarget.querySelectorAll('li'))
+      : []
   }
 
-  onClick(e) {
-    console.log('hoge')
-    this.update(this.getNewCurrentIndex(e))
-  }
+  getNewCurrentIndex(target: HTMLLIElement): number {
+    const clickButtonIndex = this.getList().indexOf(target)
 
-  getNewCurrentIndex(e) {
-    const { currentTarget } = e
-    const listElementArray = Array.from(this.element.querySelectorAll('li'))
-    const clickButtonIndex = listElementArray.indexOf(
-      currentTarget.parentElement
-    )
-
-    if (clickButtonIndex < 0) {
-      console.error('Failed to acquire the clicked index.')
-    }
-
-    return clickButtonIndex
+    return clickButtonIndex < 0 ? 0 : clickButtonIndex
   }
 }
