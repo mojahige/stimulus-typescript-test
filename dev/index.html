@@ -12,34 +12,43 @@
     <h1>Stimulus Test</h1>
   </header>
 
-  <ul class="Tab"
-      role="tablist"
-      data-controller="tab">
-    <li class="Tab__item">
-      <button type="button"
-              class="Tab__button"
-              data-action="click->tab#onClick">
-        1
-      </button>
+  <div class="Tab"
+       data-controller="tab">
+    <ul class="Tab__list"
+        role="tablist">
+      <li class="Tab__listItem">
+        <button type="button"
+                class="Tab__listButton"
+                aria-selected="true"
+                data-action="click->tab#onClick">
+          1
+        </button>
+      </li>
+      <li class="Tab__listItem">
+        <button type="button"
+                class="Tab__listButton"
+                aria-selected="false"
+                data-action="click->tab#onClick">
+          2
+        </button>
+      </li>
+    </ul>
 
-      <div class="Tab__content"
+    <div class="Tab__content"
+         data-target="tab.content">
+      <div class="Tab__panel"
+           role="tabpanel"
+           aria-hidden="false">
+        Tab1 content.
+      </div>
+
+      <div class="Tab__panel"
+           role="tabpanel"
            aria-hidden="true">
-        Tab 1 content.
+        Tab2 content.
       </div>
-    </li>
-    <li class="Tab__item">
-      <button type="button"
-              class="Tab__button"
-              data-action="click->tab#onClick">
-        2
-      </button>
-
-      <div class="Tab__content"
-            aria-hidden="true">
-        Tab 2 content.
-      </div>
-    </li>
-  </ul>
+    </div>
+  </div>
 
   <script src="assets/javascripts/main.js"></script>
 </body>
