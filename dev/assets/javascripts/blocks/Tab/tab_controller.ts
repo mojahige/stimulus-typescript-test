@@ -40,32 +40,43 @@ export default class extends Controller {
   }
 
   private setListButtonSelectedState() {
-    this.listTarget
-      .querySelectorAll('.Tab__listButton')
-      [this.currentIndex].setAttribute('aria-selected', 'true')
+    this.getListButton()[this.currentIndex].setAttribute(
+      'aria-selected',
+      'true'
+    )
   }
 
   private setTabPanelOpenState() {
-    this.contentTarget
-      .querySelectorAll('.Tab__panel')
-      [this.currentIndex].setAttribute('aria-hidden', 'false')
+    this.getTabPanel()[this.currentIndex].setAttribute('aria-hidden', 'false')
   }
 
   private resetListButtonState() {
-    this.listTarget
-      .querySelectorAll('.Tab__listButton')
-      .forEach(element => element.setAttribute('aria-selected', 'false'))
+    this.getListButton().forEach(element =>
+      element.setAttribute('aria-selected', 'false')
+    )
   }
 
   private resetTabPanelState() {
-    this.contentTarget
-      .querySelectorAll('.Tab__panel')
-      .forEach(element => element.setAttribute('aria-hidden', 'true'))
+    this.getTabPanel().forEach(element =>
+      element.setAttribute('aria-hidden', 'true')
+    )
+  }
+
+  private getTabPanel(): Element[] {
+    return this.hasContentTarget
+      ? Array.from(this.contentTarget.querySelectorAll('.Tab__panel'))
+      : []
   }
 
   private getListItem(): Element[] {
     return this.hasListTarget
-      ? Array.from(this.listTarget.querySelectorAll('li'))
+      ? Array.from(this.listTarget.querySelectorAll('.Tab__listItem'))
+      : []
+  }
+
+  private getListButton(): Element[] {
+    return this.hasListTarget
+      ? Array.from(this.listTarget.querySelectorAll('.Tab__listButton'))
       : []
   }
 
