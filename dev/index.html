@@ -16,12 +16,13 @@
     <div class="Tab"
           data-controller="tab">
       <ul class="Tab__list"
-          role="tablist">
+          role="tablist"
+          data-target="tab.list">
         <li class="Tab__listItem">
           <button type="button"
                   class="Tab__listButton"
                   aria-selected="true"
-                  data-action="click->tab#onClick">
+                  data-action="click->tab#onClickListButton">
             1
           </button>
         </li>
@@ -29,7 +30,7 @@
           <button type="button"
                   class="Tab__listButton"
                   aria-selected="false"
-                  data-action="click->tab#onClick">
+                  data-action="click->tab#onClickListButton">
             2
           </button>
         </li>
