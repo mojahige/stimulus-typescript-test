@@ -6,7 +6,8 @@
   "scripts": {
     "start": "npm run clean & parcel dev/index.html",
     "build": "npm run clean & parcel build dev/index.html --no-source-maps",
-    "clean": "rimraf ./dist"
+    "clean": "rimraf ./dist",
+    "tslint-check": "tslint-config-prettier-check ./tslint.json"
   },
   "author": "Yu Nozato",
   "license": "ISC",
