@@ -5,8 +5,42 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/ress@1.2.2/dist/ress.min.css">
 </head>
 <body>
-  <script src="assets/javascripts/index.js"></script>
+  <header>
+    <h1>Stimulus Test</h1>
+  </header>
+
+  <ul class="Tab"
+      role="tablist"
+      data-controller="tab">
+    <li class="Tab__item">
+      <button type="button"
+              class="Tab__button"
+              data-action="click->tab#onClick">
+        1
+      </button>
+
+      <div class="Tab__content"
+           aria-hidden="true">
+        Tab 1 content.
+      </div>
+    </li>
+    <li class="Tab__item">
+      <button type="button"
+              class="Tab__button"
+              data-action="click->tab#onClick">
+        2
+      </button>
+
+      <div class="Tab__content"
+            aria-hidden="true">
+        Tab 2 content.
+      </div>
+    </li>
+  </ul>
+
+  <script src="assets/javascripts/main.js"></script>
 </body>
 </html>
