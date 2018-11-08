@@ -3,6 +3,10 @@
     "moduleResolution": "node",
     "sourceMap": true,
     "target": "es5",
-    "module": "es2015"
+    "module": "es2015",
+    "lib": [
+      "es2016",
+      "dom"
+    ]
   }
 }
