@@ -1,0 +1,15 @@
+{
+  "extends": [
+    "esnext",
+    "prettier"
+  ],
+  "plugins": [
+    "prettier"
+  ],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  }
+}

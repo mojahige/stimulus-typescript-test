@@ -1,0 +1,26 @@
+{
+  "name": "stimulus-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run clean & parcel dev/index.html",
+    "build": "npm run clean & parcel build dev/index.html --no-source-maps",
+    "clean": "rimraf ./dist"
+  },
+  "author": "Yu Nozato",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-proposal-class-properties": "^7.1.0",
+    "@babel/preset-env": "^7.1.5",
+    "eslint": "^5.8.0",
+    "eslint-config-esnext": "^4.0.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "parcel-bundler": "^1.10.3",
+    "prettier": "^1.15.1",
+    "rimraf": "^2.6.2",
+    "stimulus": "^1.1.0"
+  }
+}
