@@ -13,45 +13,51 @@
   </header>
 
   <main>
-    <div class="Tab"
-          data-controller="tab">
-      <ul class="Tab__list"
-          role="tablist"
-          data-target="tab.list">
-        <li class="Tab__listItem">
-          <button type="button"
-                  class="Tab__listButton"
-                  aria-selected="true"
-                  data-action="click->tab#onClickListButton">
-            1
-          </button>
-        </li>
-        <li class="Tab__listItem">
-          <button type="button"
-                  class="Tab__listButton"
-                  aria-selected="false"
-                  data-action="click->tab#onClickListButton">
-            2
-          </button>
-        </li>
-      </ul>
+    <section>
+      <h2 style="margin-bottom: 1rem;">
+        Tab
+      </h2>
 
-      <div class="Tab__content"
-            data-target="tab.content">
-        <div class="Tab__panel"
-              role="tabpanel"
-              aria-hidden="false">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque itaque ea ipsam dolor eum laudantium a nostrum quos. Quisquam sequi ipsam molestiae laudantium error, totam quidem minus reprehenderit quia at.
-        </div>
+      <div class="Tab"
+           data-controller="tab">
+        <ul class="Tab__list"
+            role="tablist"
+            data-target="tab.list">
+          <li class="Tab__listItem">
+            <button type="button"
+                    class="Tab__listButton"
+                    aria-selected="true"
+                    data-action="click->tab#onClickListButton">
+              1
+            </button>
+          </li>
+          <li class="Tab__listItem">
+            <button type="button"
+                    class="Tab__listButton"
+                    aria-selected="false"
+                    data-action="click->tab#onClickListButton">
+              2
+            </button>
+          </li>
+        </ul>
 
-        <div class="Tab__panel"
-              role="tabpanel"
-              aria-hidden="true">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque itaque ea ipsam dolor eum laudantium a nostrum quos. Quisquam sequi ipsam molestiae laudantium error, totam quidem minus reprehenderit quia at.<br>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque itaque ea ipsam dolor eum laudantium a nostrum quos. Quisquam sequi ipsam molestiae laudantium error, totam quidem minus reprehenderit quia at.
+        <div class="Tab__content"
+              data-target="tab.content">
+          <div class="Tab__panel"
+                role="tabpanel"
+                aria-hidden="false">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque itaque ea ipsam dolor eum laudantium a nostrum quos. Quisquam sequi ipsam molestiae laudantium error, totam quidem minus reprehenderit quia at.
+          </div>
+
+          <div class="Tab__panel"
+                role="tabpanel"
+                aria-hidden="true">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque itaque ea ipsam dolor eum laudantium a nostrum quos. Quisquam sequi ipsam molestiae laudantium error, totam quidem minus reprehenderit quia at.<br>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque itaque ea ipsam dolor eum laudantium a nostrum quos. Quisquam sequi ipsam molestiae laudantium error, totam quidem minus reprehenderit quia at.
+          </div>
         </div>
       </div>
-    </div>
+    </section>
   </main>
 
   <script src="assets/javascripts/main.ts"></script>
