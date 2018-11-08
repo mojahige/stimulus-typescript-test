@@ -12,44 +12,46 @@
     <h1>Stimulus Test</h1>
   </header>
 
-  <div class="Tab"
-       data-controller="tab">
-    <ul class="Tab__list"
-        role="tablist">
-      <li class="Tab__listItem">
-        <button type="button"
-                class="Tab__listButton"
-                aria-selected="true"
-                data-action="click->tab#onClick">
-          1
-        </button>
-      </li>
-      <li class="Tab__listItem">
-        <button type="button"
-                class="Tab__listButton"
-                aria-selected="false"
-                data-action="click->tab#onClick">
-          2
-        </button>
-      </li>
-    </ul>
+  <main>
+    <div class="Tab"
+          data-controller="tab">
+      <ul class="Tab__list"
+          role="tablist">
+        <li class="Tab__listItem">
+          <button type="button"
+                  class="Tab__listButton"
+                  aria-selected="true"
+                  data-action="click->tab#onClick">
+            1
+          </button>
+        </li>
+        <li class="Tab__listItem">
+          <button type="button"
+                  class="Tab__listButton"
+                  aria-selected="false"
+                  data-action="click->tab#onClick">
+            2
+          </button>
+        </li>
+      </ul>
 
-    <div class="Tab__content"
-         data-target="tab.content">
-      <div class="Tab__panel"
-           role="tabpanel"
-           aria-hidden="false">
-        Tab1 content.
-      </div>
+      <div class="Tab__content"
+            data-target="tab.content">
+        <div class="Tab__panel"
+              role="tabpanel"
+              aria-hidden="false">
+          Tab1 content.
+        </div>
 
-      <div class="Tab__panel"
-           role="tabpanel"
-           aria-hidden="true">
-        Tab2 content.
+        <div class="Tab__panel"
+              role="tabpanel"
+              aria-hidden="true">
+          Tab2 content.
+        </div>
       </div>
     </div>
-  </div>
+  </main>
 
-  <script src="assets/javascripts/main.js"></script>
+  <script src="assets/javascripts/main.ts"></script>
 </body>
 </html>
