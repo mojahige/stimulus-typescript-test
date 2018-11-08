@@ -11,7 +11,7 @@
     .Tab__listButton {
       min-width: 100px;
       padding: 0.5em;
-      border: 2px solid transparent;
+      border-bottom: 2px solid transparent;
 
       &[aria-selected="true"] {
         border-bottom-color: #666;
