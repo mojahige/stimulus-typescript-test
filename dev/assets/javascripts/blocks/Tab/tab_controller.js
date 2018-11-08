@@ -3,9 +3,13 @@ import { Controller } from 'stimulus'
 export default class extends Controller {
   static targets = ['name', 'output']
 
-  onClick(e) {
-    console.log('Event', e)
+  constructor() {
+    super()
 
-    console.log(this.targets)
+    this.index = 0
+  }
+
+  onClick() {
+    console.log(this)
   }
 }
