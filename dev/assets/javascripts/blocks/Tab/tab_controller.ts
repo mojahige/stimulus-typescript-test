@@ -33,14 +33,14 @@ export default class extends Controller {
     }
   }
 
-  getList(): Array<Element> {
+  getListItem(): Array<Element> {
     return this.hasListTarget
       ? Array.from(this.listTarget.querySelectorAll('li'))
       : []
   }
 
   getNewCurrentIndex(target: HTMLLIElement): number {
-    const clickButtonIndex = this.getList().indexOf(target)
+    const clickButtonIndex = this.getListItem().indexOf(target)
 
     return clickButtonIndex < 0 ? 0 : clickButtonIndex
   }
