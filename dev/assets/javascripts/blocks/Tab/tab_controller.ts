@@ -1,45 +1,53 @@
 import { Controller } from 'stimulus'
 
 export default class extends Controller {
-  // これまじか
-  listTarget: Element
-  listTargets: Element[]
-  hasListTarget: boolean
-  contentTarget: Element
-  contentTargets: Element[]
-  hasContentTarget: boolean
+  public static targets = ['list', 'content']
 
-  static targets = ['list', 'content']
-  currentIndex: number = 0
+  // これまじか
+  private listTarget: Element
+  private listTargets: Element[]
+  private hasListTarget: boolean
+  private contentTarget: Element
+  private contentTargets: Element[]
+  private hasContentTarget: boolean
+
+  private currentIndex: number = 0
 
   // initialize() {
   // }
 
-  update(newIndex: number) {
+  private update(newIndex: number) {
     if (this.currentIndex === newIndex) {
       return
     }
 
     this.currentIndex = newIndex
+
+    // this.resetListButtonState()
+    // this.resetTabPanelState()
   }
 
-  onClickListButton(e: Event) {
-    const clickButton = <HTMLButtonElement>e.currentTarget
+  // private resetListButtonState() {}
+
+  // private resetTabPanelState() {}
+
+  private onClickListButton(e: Event) {
+    const clickButton = e.currentTarget as HTMLButtonElement
 
     if (clickButton) {
       this.update(
-        this.getNewCurrentIndex(<HTMLLIElement>clickButton.parentElement)
+        this.getNewCurrentIndex(clickButton.parentElement as HTMLLIElement)
       )
     }
   }
 
-  getListItem(): Array<Element> {
+  private getListItem(): Element[] {
     return this.hasListTarget
       ? Array.from(this.listTarget.querySelectorAll('li'))
       : []
   }
 
-  getNewCurrentIndex(target: HTMLLIElement): number {
+  private getNewCurrentIndex(target: HTMLLIElement): number {
     const clickButtonIndex = this.getListItem().indexOf(target)
 
     return clickButtonIndex < 0 ? 0 : clickButtonIndex
