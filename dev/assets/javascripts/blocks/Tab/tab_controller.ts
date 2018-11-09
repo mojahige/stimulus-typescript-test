@@ -39,49 +39,46 @@ export default class extends Controller {
     this.setTabPanelOpenState()
   }
 
-  private setListButtonSelectedState() {
-    this.getListButton()[this.currentIndex].setAttribute(
-      'aria-selected',
-      'true'
-    )
-  }
-
-  private setTabPanelOpenState() {
-    this.getTabPanel()[this.currentIndex].setAttribute('aria-hidden', 'false')
-  }
-
-  private resetListButtonState() {
-    this.getListButton().forEach(element =>
-      element.setAttribute('aria-selected', 'false')
-    )
-  }
-
-  private resetTabPanelState() {
-    this.getTabPanel().forEach(element =>
-      element.setAttribute('aria-hidden', 'true')
-    )
-  }
-
-  private getTabPanel(): Element[] {
+  get tabPanel(): Element[] {
     return this.hasContentTarget
       ? Array.from(this.contentTarget.querySelectorAll('.Tab__panel'))
       : []
   }
 
-  private getListItem(): Element[] {
+  get listItem(): Element[] {
     return this.hasListTarget
       ? Array.from(this.listTarget.querySelectorAll('.Tab__listItem'))
       : []
   }
 
-  private getListButton(): Element[] {
+  get listButton(): Element[] {
     return this.hasListTarget
       ? Array.from(this.listTarget.querySelectorAll('.Tab__listButton'))
       : []
   }
 
+  private setListButtonSelectedState() {
+    this.listButton[this.currentIndex].setAttribute('aria-selected', 'true')
+  }
+
+  private setTabPanelOpenState() {
+    this.tabPanel[this.currentIndex].setAttribute('aria-hidden', 'false')
+  }
+
+  private resetListButtonState() {
+    this.listButton.forEach(element =>
+      element.setAttribute('aria-selected', 'false')
+    )
+  }
+
+  private resetTabPanelState() {
+    this.tabPanel.forEach(element =>
+      element.setAttribute('aria-hidden', 'true')
+    )
+  }
+
   private getNewCurrentIndex(target: HTMLLIElement): number {
-    const clickButtonIndex = this.getListItem().indexOf(target)
+    const clickButtonIndex = this.listItem.indexOf(target)
 
     return clickButtonIndex < 0 ? 0 : clickButtonIndex
   }
