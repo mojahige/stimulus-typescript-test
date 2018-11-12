@@ -16,6 +16,24 @@ export default class extends Controller {
   // initialize() {
   // }
 
+  get tabPanel(): Element[] {
+    return this.hasContentTarget
+      ? Array.from(this.contentTarget.querySelectorAll('.Tab__panel'))
+      : []
+  }
+
+  get listItem(): Element[] {
+    return this.hasListTarget
+      ? Array.from(this.listTarget.querySelectorAll('.Tab__listItem'))
+      : []
+  }
+
+  get listButton(): Element[] {
+    return this.hasListTarget
+      ? Array.from(this.listTarget.querySelectorAll('.Tab__listButton'))
+      : []
+  }
+
   public onClickListButton(e: Event) {
     const clickButton = e.currentTarget as HTMLButtonElement
 
@@ -37,24 +55,6 @@ export default class extends Controller {
     this.resetTabPanelState()
     this.setListButtonSelectedState()
     this.setTabPanelOpenState()
-  }
-
-  get tabPanel(): Element[] {
-    return this.hasContentTarget
-      ? Array.from(this.contentTarget.querySelectorAll('.Tab__panel'))
-      : []
-  }
-
-  get listItem(): Element[] {
-    return this.hasListTarget
-      ? Array.from(this.listTarget.querySelectorAll('.Tab__listItem'))
-      : []
-  }
-
-  get listButton(): Element[] {
-    return this.hasListTarget
-      ? Array.from(this.listTarget.querySelectorAll('.Tab__listButton'))
-      : []
   }
 
   private setListButtonSelectedState() {
