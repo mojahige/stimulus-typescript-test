@@ -41,6 +41,8 @@ export default class extends Controller {
       this.update(
         this.getNewCurrentIndex(clickButton.parentElement as HTMLLIElement)
       )
+
+      clickButton.blur()
     }
   }
 
